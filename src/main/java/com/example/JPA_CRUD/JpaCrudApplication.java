@@ -34,7 +34,10 @@ public class JpaCrudApplication {
 
 		  //updateStudentsById(studentDao);
 
-		  deleteStudent(studentDao);
+		 // deleteStudent(studentDao);
+
+		 deleteAllStudents(studentDao);
+
 
 		};
 	}
@@ -124,7 +127,13 @@ public class JpaCrudApplication {
 	private void deleteStudent(StudentDao studentDao){
      int studentId=1;
     studentDao.delete(studentId);
-
 	}
+
+	//deleting all stuents
+   private void deleteAllStudents(StudentDao studentDao){
+    
+	int deletedRows=studentDao.deleteAll();
+	System.out.println("deleted rows:" + deletedRows);
+   }
 
 }
