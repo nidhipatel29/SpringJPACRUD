@@ -14,4 +14,6 @@ List<Student> findAll();
 List<Student> findByLastName(String theLastName);
 
 void updateStudent(Student student);
+
+void delete(Integer id);
 } 

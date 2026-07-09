@@ -56,4 +56,14 @@ private EntityManager entityManager;
        entityManager.merge(student);
     }
 
+    //deleting student
+    @Transactional
+    public void delete(Integer id){
+        Student student = entityManager.find(Student.class, id);
+        if (student != null) {
+            entityManager.remove(student);
+        }
+    }
+
+
 }

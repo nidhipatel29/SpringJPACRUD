@@ -32,7 +32,9 @@ public class JpaCrudApplication {
 		  //findAllStudent(studentDao);
 		  //FindStudentByLastName(studentDao);
 
-		  updateStudentsById(studentDao);
+		  //updateStudentsById(studentDao);
+
+		  deleteStudent(studentDao);
 
 		};
 	}
@@ -115,6 +117,13 @@ public class JpaCrudApplication {
 
 	 //display the updated student 
       System.out.println(student);
+
+	}
+
+	//deleting student
+	private void deleteStudent(StudentDao studentDao){
+     int studentId=1;
+    studentDao.delete(studentId);
 
 	}
 
