@@ -66,4 +66,13 @@ private EntityManager entityManager;
     }
 
 
+    //deleting all students
+    @Transactional
+    public int deleteAll(){
+        int deletedRows=entityManager.createQuery("DELETE FROM Student").executeUpdate();
+        return deletedRows;
+    }
+
+    
+
 }
