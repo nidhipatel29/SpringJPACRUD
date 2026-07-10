@@ -36,7 +36,11 @@ public class JpaCrudApplication {
 
 		 // deleteStudent(studentDao);
 
-		 deleteAllStudents(studentDao);
+		// deleteAllStudents(studentDao);
+
+		// ************************ now all employee methods****************************
+
+		getAllEmplyee(employeeDao);
 
 
 		};
@@ -134,6 +138,16 @@ public class JpaCrudApplication {
     
 	int deletedRows=studentDao.deleteAll();
 	System.out.println("deleted rows:" + deletedRows);
+   }
+
+   //read all employee
+   public void getAllEmplyee(EmployeeDao employeeDao){
+    List<Employee> tempEmployee=employeeDao.readAllEmployee();
+
+	//display all employee
+	for(Employee employee: tempEmployee){
+      System.out.println(employee);
+	}
    }
 
 }
