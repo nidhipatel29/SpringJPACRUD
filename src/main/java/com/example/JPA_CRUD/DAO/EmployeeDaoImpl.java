@@ -1,5 +1,7 @@
 package com.example.JPA_CRUD.DAO;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.example.JPA_CRUD.Entity.Employee;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -26,5 +29,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     public Employee findById(int id){
        return entityManager.find(Employee.class, id);
+   
     }
+
+    public List<Employee> readAllEmployee(){
+       TypedQuery<Employee> query=entityManager.createQuery("FROM Employee",Employee.class);
+      return query.getResultList();
+    }
+    
 }
