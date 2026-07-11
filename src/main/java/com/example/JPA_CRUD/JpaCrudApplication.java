@@ -40,7 +40,14 @@ public class JpaCrudApplication {
 
 		// ************************ now all employee methods****************************
 
-		getAllEmplyee(employeeDao);
+		//getAllEmplyee(employeeDao);
+
+		//get employee by parameter
+		//getEmpByPara(employeeDao);
+
+		//updateemployee(employeeDao);
+
+		deletedEmployee(employeeDao);
 
 
 		};
@@ -149,5 +156,34 @@ public class JpaCrudApplication {
       System.out.println(employee);
 	}
    }
+
+   //retriving employee by the parameter
+   private void getEmpByPara(EmployeeDao employeeDao){
+     
+	//retriving the employee
+       List<Employee> tEMployees=employeeDao.findByPara("IT");
+
+	//display the employee
+        System.out.println(tEMployees);
+   }
+
+   //update the employee
+   private void updateemployee(EmployeeDao employeeDao){
+	  int EmpId=2;
+       Employee employee=employeeDao.findById(EmpId);
+	   employee.setDepartment("MBA");
+	   employeeDao.updateEmployee(employee);
+	   System.out.println("upadated employee is:" + employee.getFirstName());
+	   
+   }
+
+   //deleting employee
+   private void deletedEmployee(EmployeeDao employeeDao){
+	int emp_id=2;
+	Employee employee=employeeDao.findById(emp_id);
+      int deletedRows=employeeDao.deleteEmployee(emp_id);
+	  System.out.println(deletedRows);
+   }
+
 
 }
