@@ -11,4 +11,10 @@ public interface EmployeeDao {
     Employee findById(int id);
 
     List<Employee> readAllEmployee();
+
+    List<Employee> findByPara(String department);
+
+    void updateEmployee(Employee employee);
+
+    int deleteEmployee(int id);
 }
